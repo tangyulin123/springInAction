@@ -2,7 +2,7 @@ package com.tangyulin.spring.chapter1.aop;
 
 public interface Performance {
 
-    public void performance();
+    void performance();
 
-    public void personCount(int num);
+    void personCount(int num);
 }

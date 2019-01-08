@@ -1,7 +1,7 @@
 package com.tangyulin.spring.chapter1;
 
+import com.tangyulin.spring.chapter1.aop.Performance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @author tangyulin
@@ -13,6 +13,9 @@ public class MacBookComputer implements Computer {
 
     @Autowired
     Disk disk;
+
+    @Autowired
+    Performance performance;
 
     @Override
     public void calculate() {
@@ -26,6 +29,6 @@ public class MacBookComputer implements Computer {
 
     @Override
     public void play() {
-
+        performance.performance();
     }
 }

@@ -1,6 +1,5 @@
 package com.tangyulin.spring.chapter1.aop;
 
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -47,7 +46,7 @@ public class Audience {
         System.out.println("Demanding a refund");
     }
 
-    @Around("performance()")
+   /* @Around("performance()")
     public void watchPerformance(ProceedingJoinPoint point) {
         try {
             System.out.println("Silengcing cell phones");
@@ -57,5 +56,5 @@ public class Audience {
         } catch (Throwable a) {
             System.out.println("Demanding a refund");
         }
-    }
+    }*/
 }

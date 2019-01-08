@@ -1,12 +1,11 @@
 package com.tangyulin.spring;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.tangyulin.spring.chapter1.MacBookComputer;
+import com.tangyulin.spring.chapter1.aop.Performance;
 import com.tangyulin.spring.chapter1.config.ComputerConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -30,6 +29,9 @@ public class ComputerTest {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    Performance performance;
+
     @Test
     public void computerTest(){
         macBookComputer.calculate();
@@ -44,6 +46,14 @@ public class ComputerTest {
         Class<? extends DataSource> aClass = dataSource.getClass();
 
     }
+
+    @Test
+    public void computerTest3(){
+        macBookComputer.play();
+        Class<? extends Performance> aClass = performance.getClass();
+        aClass.getInterfaces()
+    }
+
 
     /*public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ComputerConfig.class);
