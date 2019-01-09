@@ -1,8 +1,8 @@
 package com.tangyulin.spring.chapter1.config;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.tangyulin.spring.chapter1.Computer;
 import com.tangyulin.spring.chapter1.MacBookComputer;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
@@ -32,11 +32,12 @@ public class ComputerConfig {
     @Bean
     @Profile("dev")
     public DataSource mysqlDataSource(){
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setServerName("com.musql.jdbc.Driver");
-        dataSource.setURL("jdbc:mysql://localhost:3306/testDB");
-        dataSource.setUser("tangyulin");
-        dataSource.setPassword("123456");
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
+        dataSource.setUrl("jdbc:mysql://localhost:3309/sampledb");
         return dataSource;
     }
+
 }
